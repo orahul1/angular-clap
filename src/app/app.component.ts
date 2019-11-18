@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-clap';
+
+  clap(){
+    console.log('this');
+  }
 }
+
+

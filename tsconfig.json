@@ -17,7 +17,15 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ang-clap": [
+        "dist/ang-clap"
+      ],
+      "ang-clap/*": [
+        "dist/ang-clap/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

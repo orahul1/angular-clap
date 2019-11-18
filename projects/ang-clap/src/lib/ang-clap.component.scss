@@ -1,0 +1,41 @@
+.container {
+  position: relative;
+  text-align: center;
+  .claps-count{
+    width: 60px;
+    height: 60px;
+    position: absolute;
+  }
+  .wrapper {
+  width: 60px;
+  height: 60px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  position: absolute;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 150ms ease;
+  top:100px;
+
+  button {
+    border: 0;
+    outline: 0;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 50%;
+    transition: fill 200ms ease;
+    cursor: pointer;
+
+    &:focus {
+      fill: rgba(125, 102, 161, 1);
+    }
+  }
+
+  svg {
+    width: 33px;
+    height: 33px;
+    cursor: pointer;
+  }
+}
+}

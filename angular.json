@@ -124,6 +124,41 @@
           }
         }
       }
+    },
+    "ang-clap": {
+      "projectType": "library",
+      "root": "projects/ang-clap",
+      "sourceRoot": "projects/ang-clap/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ang-clap/tsconfig.lib.json",
+            "project": "projects/ang-clap/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ang-clap/src/test.ts",
+            "tsConfig": "projects/ang-clap/tsconfig.spec.json",
+            "karmaConfig": "projects/ang-clap/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ang-clap/tsconfig.lib.json",
+              "projects/ang-clap/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }},
   "defaultProject": "angular-clap"
 }
