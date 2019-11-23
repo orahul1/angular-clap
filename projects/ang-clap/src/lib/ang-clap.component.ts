@@ -1,13 +1,9 @@
-import { Component, OnInit, Input, EventEmitter, Output, Directive, HostListener } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'ang-clap',
   templateUrl: './ang-clap.component.html',
   styleUrls: ['./ang-clap.component.scss']
-})
-
-@Directive({
-  selector: '[mouse-events]'
 })
 
 export class AngClapComponent implements OnInit {
@@ -19,56 +15,76 @@ export class AngClapComponent implements OnInit {
   @Output() mouseClickEvent = new EventEmitter();
   isClapping: boolean = false;
   isMouseHover: boolean = false;
+  showClear: boolean = false;
   clapTimer: any;
+  clearMouseLeaveTimer: any;
+  isClearBtnHover: boolean = false;
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  /* funcntion on clap icon */
-  @HostListener('click')
-  mouseClick() {
-    if (this.checkClapCondition()) {
-      this.claps = this.claps + 1;
-      this.isClapping = true;
-      this.mouseClickEvent.emit();
-    } else {
-      return 0;
-    }
-  }
-
   /* funcntion on mouse release */
-  @HostListener('mouseup')
   mouseUp() {
     this.isClapping = false;
     clearInterval(this.clapTimer);
   }
 
   /* funcntion on mouse click and hold */
-  @HostListener('mousedown')
   mouseDown() {
+    this.isClapping = true;
+    if(this.checkClapCondition()){
+    this.claps = this.claps + 1;
+    }
     this.clapTimer = setInterval(() => {
       if (this.checkClapCondition()) {
         this.claps = this.claps + 1;
-        this.isClapping = true;
+        this.isClapping = !this.isClapping;
         this.mouseClickEvent.emit();
       } else {
         return 0;
       }
-    }, 300)
+    }, 200)
   }
 
   /* funcntion on mouse leave */
-  @HostListener('mouseleave')
   mouseLeave() {
     this.isMouseHover = false;
+    this.isClapping = false;
+    this.clearMouseLeaveTimer = setTimeout(() => {
+      if(!this.isClearBtnHover){
+      this.showClear = false;
+      }
+    }, 600);
+
   }
 
   /* funcntion on mouse enter */
-  @HostListener('mouseenter')
   mouseEnter() {
     this.isMouseHover = true;
+    if(this.claps > 0 && !this.isClapping){
+    this.showClear = true;
+    }
+  }
+
+  /* clear claps */
+  clearClaps(){
+    this.claps = 0;
+    this.showClear = false;
+  }
+
+  /* function on mouse enter on clear claps */
+  mouseOnClearClaps(){
+    this.showClear = true;
+    this.isClearBtnHover = true;
+  }
+
+
+  /* function on mouse leave on clear claps */
+  mouseLeaveClearClaps(){
+    this.showClear = false;
+    this.isClearBtnHover = false;
   }
 
   /* check if claps is equals to maximum claps */
