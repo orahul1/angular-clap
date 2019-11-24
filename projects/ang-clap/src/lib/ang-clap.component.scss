@@ -81,9 +81,31 @@
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
+.clear{
+  animation: clear .5s ease-in;
+}
+
 @keyframes popup{
   0% {
     transform: translateY(15px);
+  }
+}
+
+@keyframes clear{
+  0%{
+    opacity: 0;
+  }
+  25%{
+    opacity: 0.3;
+  }
+  50%{
+    opacity: 0.5;
+  }
+  75%{
+    opacity: 0.7;
+  }
+  100%{
+    opacity: 1;
   }
 }
 

@@ -34,6 +34,7 @@ export class AngClapComponent implements OnInit {
   /* funcntion on mouse click and hold */
   mouseDown() {
     this.isClapping = true;
+    this.showClear = false;
     if(this.checkClapCondition()){
     this.claps = this.claps + 1;
     }
@@ -56,13 +57,14 @@ export class AngClapComponent implements OnInit {
       if(!this.isClearBtnHover){
       this.showClear = false;
       }
-    }, 600);
+    }, 300);
 
   }
 
   /* funcntion on mouse enter */
   mouseEnter() {
     this.isMouseHover = true;
+    clearInterval(this.clearMouseLeaveTimer);
     if(this.claps > 0 && !this.isClapping){
     this.showClear = true;
     }

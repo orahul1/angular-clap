@@ -3,8 +3,8 @@
     <p><span>+</span>{{claps}} </p>
   </div>
   <div class="actions">
-    <div class="close" *ngIf="showClear" (click)="clearClaps()" (mouseenter)="mouseOnClearClaps()"
-      (mouseleave)="mouseLeaveClearClaps()">
+    <div class="close" [ngClass]="{'clear': showClear}" *ngIf="showClear" (click)="clearClaps()"
+      (mouseenter)="mouseOnClearClaps()" (mouseleave)="mouseLeaveClearClaps()">
       <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" x="13px" y="13px" viewBox="0 0 47.971 47.971"
         style="enable-background:new 0 0 47.971 47.971;" xml:space="preserve">
         <g>

@@ -1,7 +1,35 @@
-<ang-clap  fillColor="#000"
-           [claps]="0"
+<ang-clap  fillColor="purple"
+           [claps]="6"
            [showBorder]="true"
            [showAnimation]="true"
            [maxClaps]="10"
+           (mouseClickEvent)="clap()">
+</ang-clap>
+
+<br>
+<br>
+<br>
+<br>
+
+
+<ang-clap  fillColor="green"
+           [claps]="0"
+           [showBorder]="true"
+           [showAnimation]="true"
+           [maxClaps]="15"
+           (mouseClickEvent)="clap()">
+</ang-clap>
+
+<br>
+<br>
+<br>
+<br>
+
+
+<ang-clap  fillColor="blue"
+           [claps]="0"
+           [showBorder]="false"
+           [showAnimation]="true"
+           [maxClaps]="15"
            (mouseClickEvent)="clap()">
 </ang-clap>

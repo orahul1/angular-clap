@@ -1,24 +1,54 @@
-# AngClap
+# Angular 8+ medium clap
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.13.
+![alt text](https://i.ibb.co/BCLdR6D/Untitled.png)
 
-## Code scaffolding
+## Getting Started
 
-Run `ng generate component component-name --project ang-clap` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ang-clap`.
-> Note: Don't forget to add `--project ang-clap` or else it will be added to the default project in your `angular.json` file. 
 
-## Build
+### Installation
 
-Run `ng build ang-clap` to build the project. The build artifacts will be stored in the `dist/` directory.
+- Install the package :
+    `npm install ang-clap --save`
 
-## Publishing
 
-After building your library with `ng build ang-clap`, go to the dist folder `cd dist/ang-clap` and run `npm publish`.
+### Usage
 
-## Running unit tests
+Import `AngClapModule` into `NgModule` in `app.module.ts`.
+```js
 
-Run `ng test ang-clap` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Further help
+import { AngClapModule } from 'ang-clap';
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+@NgModule({
+  // ...
+  imports: [
+    AngClapModule
+  ]
+  // ...
+})
+```
+
+
+Add the following component tag in you template
+
+```html
+<ang-clap  fillColor="purple"
+           [claps]="6"
+           [showBorder]="true"
+           [showAnimation]="true"
+           [maxClaps]="10"
+           (mouseClickEvent)="clap()">
+</ang-clap>
+```
+
+## Todos
+click animation on slider
+
+## Run locally
+- Clone the repository or downlod the .zip,.tar files.
+- Run `npm install`
+- Run `ng serve` for a dev server
+- Navigate to `http://localhost:4200/`
+
+## License
+free to use on any purpose.
