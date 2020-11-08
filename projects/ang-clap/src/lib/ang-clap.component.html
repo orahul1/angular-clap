@@ -15,7 +15,7 @@
         </g>
       </svg>
     </div>
-    <div class="wrapper" [ngStyle]="{ 'border-color': isMouseHover || claps > 0 && showBorder ? fillColor : none }"
+    <div class="wrapper" [ngStyle]="{ 'border-color': isMouseHover || claps > 0 && showBorder ? fillColor : 'none' }"
       [ngClass]="{ 'clapping' : isClapping, 'clap-hover' : isMouseHover && showAnimation ,'show-border': showBorder }"
       (mouseup)="mouseUp()" (mousedown)="mouseDown()" (mouseleave)="mouseLeave()" (mouseenter)="mouseEnter()">
       <button [ngStyle]="{'fill': fillColor }">

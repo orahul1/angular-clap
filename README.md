@@ -1,5 +1,7 @@
 # Angular 8+ medium clap
 
+[Stackblitz example](https://stackblitz.com/edit/angular-clap-demo?file=src/app/app.component.html)
+
 ![alt text](https://i.ibb.co/BCLdR6D/Untitled.png)
 
 ## Getting Started
@@ -37,7 +39,9 @@ Add the following component tag in you template
            [showBorder]="true"
            [showAnimation]="true"
            [maxClaps]="10"
-           (mouseClickEvent)="clap()">
+           (mouseClickEvent)="clap($event)"
+           (mouseLeaveEvent)="updateClap()"
+           (clearClapsEvent)="removeClap()">
 </ang-clap>
 ```
 

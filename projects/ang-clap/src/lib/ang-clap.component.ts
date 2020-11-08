@@ -13,6 +13,9 @@ export class AngClapComponent implements OnInit {
   @Input() showAnimation: boolean = true;
   @Input() maxClaps: number = 50;
   @Output() mouseClickEvent = new EventEmitter();
+  @Output() mouseLeaveEvent = new EventEmitter();
+  @Output() clearClapsEvent = new EventEmitter();
+
   isClapping: boolean = false;
   isMouseHover: boolean = false;
   showClear: boolean = false;
@@ -37,12 +40,13 @@ export class AngClapComponent implements OnInit {
     this.showClear = false;
     if(this.checkClapCondition()){
     this.claps = this.claps + 1;
+    this.mouseClickEvent.emit(this.claps);
     }
     this.clapTimer = setInterval(() => {
       if (this.checkClapCondition()) {
         this.claps = this.claps + 1;
         this.isClapping = !this.isClapping;
-        this.mouseClickEvent.emit();
+        this.mouseClickEvent.emit(this.claps);
       } else {
         return 0;
       }
@@ -51,6 +55,7 @@ export class AngClapComponent implements OnInit {
 
   /* funcntion on mouse leave */
   mouseLeave() {
+    this.mouseLeaveEvent.emit();
     this.isMouseHover = false;
     this.isClapping = false;
     this.clearMouseLeaveTimer = setTimeout(() => {
@@ -58,7 +63,6 @@ export class AngClapComponent implements OnInit {
       this.showClear = false;
       }
     }, 300);
-
   }
 
   /* funcntion on mouse enter */
@@ -74,6 +78,7 @@ export class AngClapComponent implements OnInit {
   clearClaps(){
     this.claps = 0;
     this.showClear = false;
+    this.clearClapsEvent.emit();
   }
 
   /* function on mouse enter on clear claps */

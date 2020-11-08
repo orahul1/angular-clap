@@ -3,7 +3,9 @@
            [showBorder]="true"
            [showAnimation]="true"
            [maxClaps]="10"
-           (mouseClickEvent)="clap()">
+           (mouseClickEvent)="clap($event)"
+           (mouseLeaveEvent)="updateClap()"
+           (clearClapsEvent)="removeClap()">
 </ang-clap>
 
 <br>
@@ -17,7 +19,9 @@
            [showBorder]="true"
            [showAnimation]="true"
            [maxClaps]="15"
-           (mouseClickEvent)="clap()">
+           (mouseClickEvent)="clap($event)"
+           (mouseLeaveEvent)="updateClap()"
+           (clearClapsEvent)="removeClap()">
 </ang-clap>
 
 <br>
@@ -31,5 +35,7 @@
            [showBorder]="false"
            [showAnimation]="true"
            [maxClaps]="15"
-           (mouseClickEvent)="clap()">
+           (mouseClickEvent)="clap($event)"
+           (mouseLeaveEvent)="updateClap()"
+           (clearClapsEvent)="removeClap()">
 </ang-clap>

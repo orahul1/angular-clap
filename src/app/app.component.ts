@@ -8,8 +8,16 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'angular-clap';
 
-  clap(){
-    console.log('this');
+  clap($event){
+    console.log($event);
+  }
+
+  updateClap(){
+    console.log('update');
+  }
+
+  removeClap(){
+    console.log('remove');
   }
 }
 
